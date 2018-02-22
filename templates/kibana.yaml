@@ -10,6 +10,7 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     component: {{ template "fullname" . }}-kibana
+    role: kibana
 spec:
   replicas: {{ .Values.kibana.replicas }}
   selector:
@@ -19,6 +20,7 @@ spec:
     metadata:
       labels:
         component: {{ template "fullname" . }}-kibana
+        role: kibana
     spec:
       containers:
       - name: kibana
